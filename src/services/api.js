@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const API_BASE_URL = '/api';
+// This checks if there is a Netlify variable, otherwise uses your local proxy
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 30000, // 30 second timeout
+  timeout: 30000,  // 30 seconds timeout
 });
 
 // Add response interceptor for better error handling
