@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // This checks if there is a Netlify variable, otherwise uses your local proxy
-const API_BASE_URL = '/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://data-cleaner-backend.vercel.app';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
